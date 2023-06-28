@@ -29,7 +29,10 @@ scrape_configs:
       target_label: "unit"
 
 
-#Scrape EC2-TESTE
+#Scrape EC2-Teste
+#Testando novamente
+#Reliazando outra alteração
+
 
 - job_name: ec2-logs
   ec2_sd_configs:

@@ -30,13 +30,11 @@ scrape_configs:
 
 
 #Scrape EC2-Teste
-#Testando novamente
-#Reliazando outra alteração
-
+#Testando modificações
 
 - job_name: ec2-logs
   ec2_sd_configs:
-    - region: us-east-2
+    - region: us-east-1
       access_key: REDACTED
       secret_key: REDACTED
   relabel_configs:
@@ -57,3 +55,4 @@ scrape_configs:
       target_label: __host__
 
 
+#realizando nova modificação

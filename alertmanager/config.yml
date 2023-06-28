@@ -1,0 +1,41 @@
+global:
+  resolve_timeout: 1m
+
+templates:
+- '/etc/alertmanager/template/*.tmpl'
+- '/etc/alertmanager/template/*.html'
+
+route:
+  group_wait: 20s
+  group_interval: 1m
+  repeat_interval: 5m
+  receiver: 'mail'
+  routes: []
+
+
+receivers:
+  - name: "mail"
+    email_configs:
+      - to: "felipe.arruda@br.clara.net"      # you@example.com
+        from: "felipe.arruda@br.clara.net"  # alertmanager@example.com  
+        smarthost: "email-smtp.us-east-1.amazonaws.com:587"
+        auth_username: "AKIAXG3RW2QQN3HXUUTD"
+        auth_password: "BN81NgZRdhCdeqGj5ADUvUZoD3ae9PyIF1C42KJEkHRv"
+        auth_identity: "felipe.arruda@br.clara.net"  
+        require_tls: true
+
+
+#templates:
+#- '/etc/alertmanager/template/*.tmpl'    
+
+#route:
+#    receiver: 'slack'
+
+#receivers:
+#    - name: 'slack'
+#      slack_configs:
+#          - send_resolved: true
+#            text: "{{ .CommonAnnotations.description }}"
+#            username: 'Prometheus'
+#            channel: '#prometheus'
+#            api_url: 'https://hooks.slack.com/services/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'
